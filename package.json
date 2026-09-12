@@ -1,27 +1,52 @@
 {
   "name": "vite-plugin-typed-sw",
-  "version": "1.0.0",
-  "description": "A Vite plugin to auto-inject and compile ESM type-safe Service Workers with HMR",
+  "version": "1.1.0",
+  "description": "A Vite plugin to compile ESM type-safe Service Workers with HMR",
+  "keywords": [
+    "plugin",
+    "service-worker",
+    "sw",
+    "typed",
+    "vite"
+  ],
+  "license": "MIT",
+  "author": "n0tz3r0",
+  "files": [
+    "dist",
+    "client.d.ts"
+  ],
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./client": {
+      "types": "./client.d.ts"
     }
   },
   "scripts": {
     "build": "tsdown",
+    "prepublishOnly": "pnpm build",
     "dev": "tsdown --watch"
-  },
-  "peerDependencies": {
-    "vite": "^8.0.0"
   },
   "dependencies": {
     "esbuild": "^0.28.2"
   },
   "devDependencies": {
+    "@types/node": "^22.20.2",
     "tsdown": "^0.23.0"
-  }
+  },
+  "peerDependencies": {
+    "vite": "^8.0.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.4.1",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.4.1"
 }
