@@ -1,0 +1,27 @@
+{
+  "name": "vite-plugin-typed-sw",
+  "version": "1.0.0",
+  "description": "A Vite plugin to auto-inject and compile ESM type-safe Service Workers with HMR",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch"
+  },
+  "peerDependencies": {
+    "vite": "^8.0.0"
+  },
+  "dependencies": {
+    "esbuild": "^0.28.2"
+  },
+  "devDependencies": {
+    "tsdown": "^0.23.0"
+  }
+}
