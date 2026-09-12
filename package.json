@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-typed-sw",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A Vite plugin to compile ESM type-safe Service Workers with HMR",
   "keywords": [
     "plugin",
@@ -13,7 +13,8 @@
   "author": "n0tz3r0",
   "files": [
     "dist",
-    "client.d.ts"
+    "client.d.ts",
+    "tsconfig.sw.json"
   ],
   "type": "module",
   "types": "./dist/index.d.mts",
@@ -24,7 +25,9 @@
     },
     "./client": {
       "types": "./client.d.ts"
-    }
+    },
+    "./tsconfig/service-worker": "./tsconfig.sw.json",
+    "./sw": "./tsconfig.sw.json"
   },
   "scripts": {
     "build": "tsdown",
